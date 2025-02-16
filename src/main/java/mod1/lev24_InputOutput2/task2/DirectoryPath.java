@@ -1,4 +1,4 @@
-package mod1.lev24.task2;
+package mod1.lev24_InputOutput2.task2;
 
 /*
     Напиши программу, которая будет считывать с клавиатуры путь к директории,

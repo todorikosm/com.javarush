@@ -1,4 +1,4 @@
-package mod1.lev24.task1;
+package mod1.lev24_InputOutput2.task1;
 
 import java.io.IOException;
 import java.nio.file.Files;
