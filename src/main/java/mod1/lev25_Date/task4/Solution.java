@@ -31,10 +31,10 @@ public class Solution {
     }
 
     static LocalDate ofYearDayExample() {
-        return LocalDate.ofYearDay(1988, 100);
+        return LocalDate.ofYearDay(ofExample().getYear(), ofExample().getDayOfYear());
     }
 
     static LocalDate ofEpochDayExample() {
-        return LocalDate.ofEpochDay(12000);
+        return LocalDate.ofEpochDay(ofExample().toEpochDay());
     }
 }
