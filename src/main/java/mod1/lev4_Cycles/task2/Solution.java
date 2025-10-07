@@ -1,4 +1,4 @@
-package mod1.lev4_Cicles.task2;
+package mod1.lev4_Cycles.task2;
 
 public class Solution {
     public static void main(String[] args) {

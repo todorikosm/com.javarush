@@ -1,4 +1,4 @@
-package mod1.lev4_Cicles.task1;
+package mod1.lev4_Cycles.task1;
 
 /*
 Напишем программу, в которой нужно вводить с клавиатуры целые числа и считать их сумму,
