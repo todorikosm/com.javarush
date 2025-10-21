@@ -1,4 +1,4 @@
-package mod1.lev11_Objects;
+package mod1.lev11_Objects.task6;
 
 /*
 В классе Solution есть поле currentYear, которое должно инициализироваться значением текущего
