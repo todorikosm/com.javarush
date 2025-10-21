@@ -8,6 +8,8 @@ package mod1.lev11_objects.task1;
 У двух равных объектов значения полей должны быть одинаковыми. Метод main не участвует в проверке.
  */
 
+import java.util.Objects;
+
 public class Iphone {
     private String model;
     private String color;
@@ -36,6 +38,18 @@ public class Iphone {
         Iphone iphone2 = new Iphone("X", "Black", 999);
 
         System.out.println(iphone1.equals(iphone2));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Iphone iphone = (Iphone) o;
+        return price == iphone.price && Objects.equals(model, iphone.model) && Objects.equals(color, iphone.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, color, price);
     }
 
 }
