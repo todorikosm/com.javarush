@@ -1,4 +1,4 @@
-package mod1.lev14_collections.task10;
+package mod1.lev14_collections.task10_set_and_foreach;
 
 import java.util.HashSet;
 import java.util.Set;
