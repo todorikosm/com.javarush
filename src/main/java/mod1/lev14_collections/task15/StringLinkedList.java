@@ -1,4 +1,4 @@
-package mod1.lev14_collections.task14;
+package mod1.lev14_collections.task15;
 
 public class StringLinkedList {
     private Node first = new Node();
@@ -26,6 +26,20 @@ public class StringLinkedList {
         newNode.prev = prevLast;
         newNode.next = last;
         last.prev = newNode;
+    }
+
+    public String get(int index) {
+        Node currentElement = first.next;
+        int currentIndex = 0;
+
+        while (currentElement != null && currentElement != last) {
+            if (currentIndex == index) {
+                return currentElement.value;
+            }
+            currentElement = currentElement.next;
+            currentIndex++;
+        }
+        return null;
     }
 
     public static class Node {

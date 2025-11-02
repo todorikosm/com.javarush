@@ -1,4 +1,4 @@
-package mod1.lev14_collections.task14;
+package mod1.lev14_collections.task14_linkedlist;
 
 /*
 Пришло время познакомиться с двусвязным списком. Решая эту задачу ты поймешь, как работает двусвязный список
