@@ -4,6 +4,11 @@ public class StringLinkedList {
     private Node first = new Node();
     private Node last = new Node();
 
+    public StringLinkedList() {
+        first.next = last;
+        last.prev = first;
+    }
+
     public void printAll() {
         Node currentElement = first.next;
         while ((currentElement != null) && (currentElement != last)) {
