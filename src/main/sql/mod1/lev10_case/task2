@@ -1,0 +1,21 @@
+SELECT
+    CASE
+        WHEN status IS NULL THEN 'No Status'
+        ELSE status
+    END AS order_status,
+    COUNT(*)
+FROM orders
+GROUP BY
+    CASE
+        WHEN status IS NULL THEN 'No Status'
+        ELSE status
+    END;
+
+    Этот запрос аккуратно обрабатывает пустые статусы NULL и подставляет 'No Status' вместо них,
+    а также подсчитывает общее количество заказов в каждой группе. Вот результат:
+
+    order_status	count
+    Completed	      3
+    Pending	          2
+    Shipped	          2
+    No Status	      3
