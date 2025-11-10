@@ -1,0 +1,16 @@
+SELECT
+    name AS product_name,
+    price,
+    CASE
+        WHEN price IS NULL THEN 'Unknown'
+        WHEN price < 50 THEN 'Budget'
+        WHEN price BETWEEN 50 AND 100 THEN 'Standard'
+        ELSE 'Premium'
+    END AS price_category
+FROM products;
+
+Что здесь происходит?
+Если цена price у товара не указана NULL, мы отображаем категорию как 'Unknown'.
+Если цена меньше 50, товар считается бюджетным 'Budget'.
+Если цена находится в диапазоне от 50 до 100, он попадает в категорию 'Standard'.
+Всё остальное — это товары премиум-класса 'Premium'.
