@@ -1,0 +1,12 @@
+-- Запрос для выбора цены и вычисления категории price_category
+-- Используется конструкция CASE WHEN ... THEN ... ELSE ... END
+
+select
+    price,
+    case
+        when price < 20 then 'Low'
+        when price between 20 and 100 then 'Medium'
+        when price > 100 then 'High'
+        when price is null then 'Unknown'
+    end as price_category
+from products;
