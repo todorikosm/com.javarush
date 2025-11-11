@@ -1,0 +1,24 @@
+Пример 2: Замена NULL на значение из другого столбца
+Иногда вместо фиксированного значения (например, 0) нам нужно подставить значение из другого столбца. Например, если exam_3 отсутствует, мы хотим использовать значение из exam_1.
+
+SELECT
+    student_id,
+    GREATEST(
+        exam_1,
+        exam_2,
+        COALESCE(exam_3, exam_1)
+    ) AS highest_score
+FROM students_scores;
+
+
+Допустим, у нас есть такая таблица:
+student_id	exam_1	exam_2	exam_3
+1	        90	    85	    82
+2	        NULL	89	    NULL
+3	        70	    NULL	NULL
+
+Результат работы запроса:
+student_id	highest_score
+1	        90
+2	        89
+3	        70

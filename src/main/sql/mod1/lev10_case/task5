@@ -1,0 +1,10 @@
+SELECT
+    user_id,
+    status,
+    CASE status
+        WHEN 'active' THEN 'Активен'
+        WHEN 'blocked' THEN 'Заблокирован'
+        WHEN status IS NULL THEN 'Нет статуса'
+        ELSE 'Неизвестно'
+    END AS user_state
+FROM users;

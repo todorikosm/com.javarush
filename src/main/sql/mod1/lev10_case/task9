@@ -1,0 +1,34 @@
+Пример 1: Замена NULL на 0
+Допустим, мы хотим считать, что отсутствие оценки NULL эквивалентно 0. Мы можем использовать COALESCE() для подстановки значения по умолчанию.
+
+Вот наша исходная таблица:
+
+student_id	exam_1	exam_2	exam_3
+1	        90	    85	    82
+2	        NULL	89	    NULL
+3	        NULL	NULL	94
+
+
+
+Запрос:
+
+SELECT
+    student_id,
+    GREATEST(
+        COALESCE(exam_1, 0),
+        COALESCE(exam_2, 0),
+        COALESCE(exam_3, 0)
+    ) AS highest_score,
+    LEAST(
+        COALESCE(exam_1, 0),
+        COALESCE(exam_2, 0),
+        COALESCE(exam_3, 0)
+    ) AS lowest_score
+FROM students_scores;
+
+
+Результат:
+student_id	highest_score	lowest_score
+1	        90	            82
+2	        89	            0
+3	        94	            0

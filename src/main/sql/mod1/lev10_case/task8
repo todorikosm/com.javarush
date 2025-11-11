@@ -1,0 +1,17 @@
+-- Запрос для перевода кодов категорий в понятные названия
+-- Используется конструкция CASE для обработки каждого возможного значения,
+-- в том числе NULL (проверка через IS NULL).
+
+
+SELECT
+    product_id,
+    product_name,
+    category_code,
+    CASE
+        WHEN category_code = 'el'  THEN 'Электроника'
+        WHEN category_code = 'frn' THEN 'Мебель'
+        WHEN category_code = 'bks' THEN 'Книги'
+        WHEN category_code IS NULL THEN 'Не указано'
+    END AS category_name
+FROM
+    products;

@@ -1,0 +1,43 @@
+employee_id	    name	department
+    1	    Alex Lin	  HR
+    2	    Maria Chi	  IT
+    3	    Anna Song	  IT
+    4	    Otto Art	  FIN
+    5	    Jane Doe	  HR
+    6	    Max Gray	  SALES
+    7	    Zoe Black	  IT
+    8	    Tom Brown	  FIN
+    9	    Liam Park	  NULL
+    10	    Eva Gold	  HR
+
+    SELECT
+        CASE department
+            WHEN 'HR' THEN 'Кадры'
+            WHEN 'IT' THEN 'Технологии'
+            WHEN 'FIN' THEN 'Финансы'
+            ELSE 'Прочее'
+        END AS dept_name,
+        COUNT(*) AS staff_count
+    FROM employees
+    GROUP BY
+        CASE department
+            WHEN 'HR' THEN 'Кадры'
+            WHEN 'IT' THEN 'Технологии'
+            WHEN 'FIN' THEN 'Финансы'
+            ELSE 'Прочее'
+        END;
+
+
+dept_name	staff_count
+Кадры	        3
+Технологии	    3
+Финансы	        2
+Прочее	        2
+
+
+
+Что здесь происходит:
+Сотрудники из департамента HR попадают в категорию Кадры.
+IT — это Технологии.
+FIN — это Финансы.
+Всё остальное, включая SALES и NULL, попадает в Прочее. Такой подход отлично подходит для создания дружелюбных и понятных отчетов.

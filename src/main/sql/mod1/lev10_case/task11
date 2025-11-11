@@ -1,0 +1,21 @@
+Кейc 1: Поиск максимальной скидки
+
+order_id	discount_1	discount_2	discount_3
+101	        5	        10	        7
+102	        NULL	    3	        8
+103	        15	        NULL	    NULL
+104	        NULL	    NULL	    NULL
+Вы работаете с таблицей orders, где каждый заказ может иметь три разных типа скидки.
+Вам нужно найти максимальную из всех скидок для каждого заказа.
+
+SELECT
+    order_id,
+    GREATEST(discount_1, discount_2, discount_3) AS max_discount
+FROM orders;
+Результат:
+
+order_id	max_discount
+101	        10
+102	        8
+103	        15
+104	        NULL
