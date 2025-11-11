@@ -1,0 +1,23 @@
+Кейc 2: Поиск минимальной цены товара
+
+В таблице products хранятся цены товаров в трёх валютах (USD, EUR, GBP).
+Ваша задача — найти минимальную цену для каждого товара.
+
+product_id	price_usd	price_eur	price_gbp
+1	        100	        95	        80
+2	        NULL	    150	        140
+3	        200	        NULL	    NULL
+4	        NULL	    NULL	    NULL
+
+SELECT
+    product_id,
+    LEAST(price_usd, price_eur, price_gbp) AS lowest_price
+FROM products;
+
+product_id	lowest_price
+1	        80
+2	        140
+3	        200
+4	        NULL
+
+Если все цены NULL, результат тоже NULL
