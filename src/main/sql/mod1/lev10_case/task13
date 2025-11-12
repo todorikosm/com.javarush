@@ -1,0 +1,13 @@
+-- Используем функции GREATEST() и LEAST() для определения максимальной и минимальной цены
+-- среди всех валют для каждого товара. Учитываем, что NULL значения приводят к NULL результату.
+
+select
+    product_id,
+    GREATEST(price_usd, price_eur, price_gbp) as max_price,
+    LEAST(price_usd, price_eur, price_gbp) as min_price
+from product_prices
+
+product_id	max_price	min_price
+1	        100	        90
+2	        85	        80
+3	        120	        115

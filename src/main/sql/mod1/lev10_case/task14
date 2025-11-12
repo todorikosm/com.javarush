@@ -1,0 +1,8 @@
+-- Запрос для вычисления средней зарплаты с учетом NULL (замена NULL на 0) и без учета NULL
+SELECT
+    -- Средняя зарплата с учетом NULL (NULL заменяется на 0 с помощью COALESCE)
+    ROUND(AVG(COALESCE(salary, 0)), 2) AS avg_salary_with_null,
+    -- Средняя зарплата без учета NULL (стандартное поведение AVG)
+    ROUND(AVG(salary), 2) AS avg_salary_without_null
+FROM
+    employees;
