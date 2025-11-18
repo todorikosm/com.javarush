@@ -1,0 +1,24 @@
+Как обработать NULL значения
+Проблема NULL значений — это неизбежное последствие использования FULL OUTER JOIN. Например,
+в реальных задачах вам может понадобиться заменять NULL на более осмысленные значения.
+В PostgreSQL это можно сделать с помощью функции COALESCE().
+
+Пример:
+
+SELECT
+    COALESCE(s.name, 'No Student') AS student_name,
+    COALESCE(e.course, 'No Course') AS course_name
+FROM
+    students s
+FULL OUTER JOIN
+    enrollments e
+ON
+    s.student_id = e.student_id;
+
+
+Результат:
+student_name	course_name
+Alice	        Math
+Bob	            Physics
+Charlie	        No Course
+No Student	    History
