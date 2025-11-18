@@ -1,0 +1,19 @@
+У вас есть две таблицы: `authors` и `books`.
+
+Напишите SQL-запрос, который с использованием `FULL OUTER JOIN` выведет все данные из обеих таблиц,
+включая тех авторов, которые не написали книги, и книги, которые не имеют авторов в таблице `authors`.
+
+Результат должен содержать столбцы: `author_id`, `name`, `title`.
+
+
+select author_id, name, title
+from authors a full outer join books b
+     on
+     a.author_id = b.author_id
+
+
+author_id	name	        title
+1	        Jane Austen	    Pride and Prejudice
+2	        Mark Twain	    Adventures of Tom
+3	        J.K. Rowling
+4		                    The Great Gatsby
