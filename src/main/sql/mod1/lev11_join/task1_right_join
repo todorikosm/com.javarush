@@ -1,0 +1,22 @@
+У вас есть таблицы: `employees` — список сотрудников, `departments` — список отделов.
+
+Напишите SQL-запрос с использованием `RIGHT JOIN`, чтобы получить список всех отделов и связанных с ними сотрудников.
+Добавьте условие, чтобы вернуть только те отделы, в которых нет сотрудников.
+
+Выведите столбцы: `department_name`, `name`.
+
+
+select
+    departments.department_name,
+    employees.name
+from
+    employees right join departments
+    on
+    employees.department_id = departments.department_id
+group by
+    departments.department_name
+having count(employees.name) = 0;
+
+
+department_name	name
+Финансы

@@ -1,0 +1,15 @@
+У вас есть две таблицы:
+1. Таблица `students` содержит информацию о студентах.
+2. Таблица `enrollments` содержит информацию о том, какие студенты записаны на курсы.
+
+Напишите SQL-запрос, который выведет полный список студентов и курсов.
+Для студентов, которые не записаны на курсы, в столбце курса должно быть значение `NULL`.
+
+
+select
+    students.name,
+    enrollments.course
+from
+    students left join enrollments
+    on
+    students.student_id = enrollments.student_id
