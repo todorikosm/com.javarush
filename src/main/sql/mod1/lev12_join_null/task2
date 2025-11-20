@@ -1,0 +1,12 @@
+У вас есть две таблицы: `students` (студенты) и `enrollments` (записи на курсы).
+
+Напишите запрос, который извлекает информацию обо всех студентах и их курсах.
+Если у студента нет записей на курсы, в столбце `course_name` должно быть указано "Нет курса".
+
+select
+     s.id,
+     s.name,
+     COALESCE(e.course_name, 'Нет курса') as course_name
+from students s left join enrollments e
+     on
+     s.id = e.student_id;

@@ -1,0 +1,100 @@
+Как бороться с NULL?
+Замена NULL на понятные значения с помощью COALESCE()
+Функция COALESCE() позволяет заменить NULL другим значением. Например, если курс отсутствует, можно указать
+"Нет курса":
+
+SELECT
+    students.id,
+    students.name,
+    COALESCE(enrollments.course_name, 'Нет курса') AS course_name
+FROM
+    students LEFT JOIN enrollments
+    ON students.id = enrollments.student_id;
+Результат:
+
+id	name	course_name
+1	Eva	Математика
+1	Eva	Информатика
+2	Peter	Физика
+3	Anna	Нет курса
+Теперь выглядит гораздо лучше, не правда ли?
+
+
+
+
+
+
+Фильтрация NULL значений
+Если вы не хотите видеть строки с NULL, можно использовать условие WHERE ... IS NOT NULL. Например:
+
+SELECT
+    students.id,
+    students.name,
+    enrollments.course_name
+FROM
+    students LEFT JOIN enrollments
+    ON students.id = enrollments.student_id
+WHERE
+    enrollments.course_name IS NOT NULL;
+Результат:
+
+id	name	course_name
+1	Eva	Математика
+1	Eva	Информатика
+2	Peter	Физика
+Анна исчезает из результата, так как у неё отсутствуют записи на курсы.
+
+
+
+
+
+Считаем с учётом NULL: пример с COUNT
+Как упоминалось ранее, некоторые функции игнорируют NULL, а некоторые нет. Например:
+
+Чтобы посчитать все строки, включая те, где есть NULL:
+
+SELECT COUNT(*) FROM students; -- Считает ВСЕ строки (включая те, где `course_name` = NULL)
+Чтобы посчитать только строки, где нет NULL:
+
+SELECT COUNT(course_name) FROM enrollments;
+Условные выражения с CASE
+Если вам не нравится COALESCE() или вы хотите больше гибкости, попробуйте использовать CASE. Например:
+
+SELECT
+    students.id,
+    students.name,
+    CASE
+        WHEN enrollments.course_name IS NULL THEN 'Нет курса'
+        ELSE enrollments.course_name
+    END AS course_name
+FROM
+    students LEFT JOIN enrollments
+    ON students.id = enrollments.student_id;
+Результат будет таким же, как при использовании COALESCE(), но CASE позволяет описывать более сложные правила.
+
+
+
+
+
+
+Используйте INNER JOIN, если уверены в отсутствии NULL
+Самый радикальный способ избежать NULL — вообще не допускать их появления, используя INNER JOIN.
+Этот тип объединения возвращает только строки с совпадениями в обеих таблицах:
+
+SELECT
+    students.id,
+    students.name,
+    enrollments.course_name
+FROM
+    students INNER JOIN enrollments
+    ON students.id = enrollments.student_id;
+Без сюрпризов — только студенты, записанные на курсы.
+
+Результат:
+
+id	name	course_name
+1	Eva	Математика
+1	Eva	Информатика
+2	Peter	Физика
+Если ваши данные требуют отображения всех значений, включая NULL, INNER JOIN не подойдёт,
+но иногда это всё, что нужно.

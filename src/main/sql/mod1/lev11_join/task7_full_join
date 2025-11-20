@@ -1,0 +1,18 @@
+Даны две таблицы: `students` и `courses`.
+
+Напишите SQL-запрос, который выведет полный список студентов и курсов, с учетом студентов без курсов и курсов
+без студентов. Выведите столбцы: `student_id`, `name`, `course_name`.
+
+
+
+select s.student_id, s.name, c.course_name
+from students s full outer join courses c
+     on
+     s.student_id = c.student_id
+
+
+student_id	    name	  course_name
+1	            Alice	  Math
+2	            Bob	      Physics
+3	            Charlie
+                          Chemistry

@@ -1,0 +1,16 @@
+
+У вас есть две таблицы: `students` (студенты) и `enrollments` (записи на курсы).
+
+Напишите запрос, который подсчитывает, сколько студентов не записано ни на один курс
+(их записи в таблице `enrollments` отсутствуют).
+
+
+select count(student_id)
+from students s left join enrollments e
+     on
+     s.id = e.student_id
+where course_name is null;
+
+
+count
+1
