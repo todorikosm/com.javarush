@@ -14,7 +14,6 @@ public class Solution {
     }
 
     public static String getShapeNameByCountOfCorners(int countOfCorner) {
-
         return switch (countOfCorner) {
             case 3 -> "Треугольник";
             case 4 -> "Четырехугольник";
