@@ -1,4 +1,4 @@
-package mod1.lev16_try_with_resources.task1;
+package mod1.lev16.try_with_resources.task1;
 
 /*
 

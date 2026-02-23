@@ -1,4 +1,4 @@
-package mod1.lev16_try_with_resources.task3;
+package mod1.lev16.try_with_resources.task3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
