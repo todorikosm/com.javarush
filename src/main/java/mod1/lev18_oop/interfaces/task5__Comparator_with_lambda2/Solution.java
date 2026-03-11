@@ -3,6 +3,7 @@ package mod1.lev18_oop.interfaces.task5__Comparator_with_lambda2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.function.Consumer;
 
 public class Solution {
 
