@@ -3,6 +3,7 @@ package mod1.lev19_lambda.lambda.stream.task1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class Solution {
