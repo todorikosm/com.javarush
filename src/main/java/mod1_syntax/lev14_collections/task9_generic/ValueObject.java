@@ -1,0 +1,18 @@
+package mod1_syntax.lev14_collections.task9_generic;
+
+public class ValueObject<T> {
+
+    private T value;
+
+    public ValueObject(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+}
